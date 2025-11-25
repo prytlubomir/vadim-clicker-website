@@ -1,23 +1,22 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-.main > *{
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 0.5em;
+}
+
+.main > * {
     position: absolute;
 }
 
-.background{
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-}
-
-.content{
+.content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,42 +27,67 @@ body{
     font-family: "Arial";
 }
 
-.download button{
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    margin-top: 4em;
+}
+
+.buttons button {
+    width: 100%;
     border: none;
-    background-color: white;
-    margin-top: 100px;
+    background-color: #eee;
     padding: 1em 2em;
     border-radius: 3em;
 }
 
+.buttons button:hover {
+    background-color: #dde;
+}
+
+.buttons button:active {
+    background-color: #ded;
+}
+
 /* Background SVG / layering */
-.background{
+.background {
+    --background: #080808;
+    width: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     position: absolute;
     z-index: 0;
     overflow: hidden;
-    background-color: #020202; /* matches SVG base */
+    background-color: var(--background); /* matches SVG base */
 }
 
-.bg-svg{
+.bg-svg {
     width: 100%;
     height: 100%;
     display: block;
     pointer-events: none;
 }
 
-.content{
+.bg-svg rect {
+    fill: var(--background);
+}
+
+.content {
     z-index: 1;
     position: relative;
 }
 
-@media (prefers-reduced-motion: reduce){
-    .pulses, .ripples{ display: none; }
+@media (prefers-reduced-motion: reduce) {
+    .pulses,
+    .ripples {
+        display: none;
+    }
 }
 
 /* Cursor-following ripple styles */
-.cursor-ripple{
+.cursor-ripple {
     fill: none;
     stroke: #1db954;
     stroke-width: 0.6;
@@ -73,11 +97,20 @@ body{
     animation: ripple-anim 0.9s linear forwards;
 }
 
-@keyframes ripple-anim{
-    0%{ transform: scale(1); opacity: 0.9; }
-    100%{ transform: scale(10); opacity: 0; }
+@keyframes ripple-anim {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(10);
+        opacity: 0;
+    }
 }
 
-@media (prefers-reduced-motion: reduce){
-    .cursor-ripple{ animation: none; display: none; }
+@media (prefers-reduced-motion: reduce) {
+    .cursor-ripple {
+        animation: none;
+        display: none;
+    }
 }
