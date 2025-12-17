@@ -1,33 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="beVSAVOvNQLXHBJhVxmQ-vB5Fe6qvV-VJR1q1cFdQH4" />
-    <title>Vadim's Clicker</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-    <section class="main">
-        <div class="background">
-            <!-- SVG animated background: click pulses + ripples -->
-            <svg class="bg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                <rect width="100" height="100" fill="#020202" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="google-site-verification"
+            content="beVSAVOvNQLXHBJhVxmQ-vB5Fe6qvV-VJR1q1cFdQH4"
+        />
+        <title>Vadim's Clicker</title>
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/ripples.css" />
+        <link rel="stylesheet" href="styles/markdown.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    </head>
+    <body>
+        <section class="main">
+            <div class="background">
+                <!-- SVG animated background: click pulses + ripples -->
+                <svg
+                    class="bg-svg"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid slice"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <rect width="100" height="100" fill="#020202" />
 
-                <!-- cursor-following ripples: empty group populated by JS -->
-                <g id="cursor-ripples"></g>
-            </svg>
-        </div>
-        <div class="content">
-            <h1>Vadim's Clicker</h1>
-            <p>A clicker activated by a designated keyboard button.</p>
-            <div class="buttons">
-                <a class="download" href="clicker.exe" type="download"><button>Download for Windows</button></a>
-                <a class="source" href="https://github.com/prytlubomir/vadim-clicker"><button>Git</button></a>
+                    <!-- cursor-following ripples: empty group populated by JS -->
+                    <g id="cursor-ripples"></g>
+                </svg>
             </div>
-        </div>
-    </section>
-    <script src="script.js"></script>
-</body>
+            <section class="content first-screen">
+                <h1 class="h1">Vadim's Clicker</h1>
+                <p>A clicker activated by a designated keyboard button.</p>
+                <div class="buttons">
+                    <a class="download" href="clicker.exe" type="download"
+                        ><button>Download for Windows</button></a
+                    >
+                    <a
+                        class="source"
+                        href="https://github.com/prytlubomir/vadim-clicker"
+                        ><button>Git</button></a
+                    >
+                </div>
+            </section>
+            <article class="content about" id="about">
+                <!--<h2>Vadim's Clicker</h2>
+                <p>A mouse automation app, controlled by keyboard hotkeys.</p>
+                <p>Created by the request of Vadim.</p>-->
+            </article>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+        <script src="scripts/ripples.js"></script>
+        <script type="module" src="scripts/renderMarkdown.js"></script>
+    </body>
 </html>

@@ -1,0 +1,30 @@
+.replaced-h1{
+    display: block;
+    font-size: 2rem;
+    margin-top: 0.67rem;
+    margin-bottom: 0.67rem;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6{
+    margin-bottom: 0 !important;
+    margin-top: 1.5rem;
+}
+
+.markdown-body hr{
+    border-width: 0.1px;
+    border-color: #444444;
+    border-style: solid;
+    margin-bottom: 1.3rem;
+}
+
+.markdown-body img{
+    max-width: 100%;
+}
