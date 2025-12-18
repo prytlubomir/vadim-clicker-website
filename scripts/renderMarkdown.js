@@ -1,28 +1,11 @@
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
 
-// function getArrayByTagName(tagName, parent=document){
-//     return Array.from(parent.getElementsByTagName(tagName));
-// }
-
-
-
-// function getArrayByTagNames(...tagNames, parrent=document){
-//     let arr = []
-//     tagNames.forEach((tagName) => {
-//         elements = getArrayByTagName(tagName, parrent);
-//         arr = arr.concat(elements);
-//     });
-// }
-
-
-
 /**
- * Replaces all <h1>s in the element with <h2>s for structural reasons,
+ * Replace all <h1>s in the element with <h2>s for structural reasons,
  * while preserving the styling of <h1>
  * @param {Element} element - which element to fix
  * @param {Boolean} allowMainHeading - allows the first h1 to stay h1
- * @returns 
  */
 function fixHeadingHierarchy(element, allowMainHeading=false){
     
@@ -46,7 +29,10 @@ function fixHeadingHierarchy(element, allowMainHeading=false){
 }
 
 
-
+/**
+ * Add horizontal lines under headings, like on GitHub.
+ * @param {*} markdownBody - the element that directly contains rendered markdown.
+ */
 function addHrs(markdownBody){
     const headings = markdownBody.querySelectorAll('h1, h2, h3, h4, h5, h6');
     headings.forEach((element) => {
@@ -57,9 +43,9 @@ function addHrs(markdownBody){
 
 
 
-async function renderMarkdown(){
+async function renderMarkdown(markdownUrl){
     
-    const response = await fetch("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/main/README.md");
+    const response = await fetch(markdownUrl);
     const markdown = await response.text();
     const renderedMarkdown = marked.parse(markdown);
     
@@ -74,4 +60,9 @@ async function renderMarkdown(){
     about.appendChild(markdownBody);
 }
 
-renderMarkdown();
+const html = document.querySelector("html");
+if (html.getAttribute('lang') === "uk") {
+    renderMarkdown("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/main/README.ua_uk.md");
+} else {
+    renderMarkdown("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/main/README.md");
+}
