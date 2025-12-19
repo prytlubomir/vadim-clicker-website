@@ -42,7 +42,10 @@ function addHrs(markdownBody){
 }
 
 
-
+/**
+ * Insert the markdown into the "about" section.
+ * @param {*} markdownUrl 
+ */
 async function renderMarkdown(markdownUrl){
     
     const response = await fetch(markdownUrl);
