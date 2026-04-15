@@ -8,6 +8,11 @@
     font-weight: bold;
 }
 
+.markdown-body p,
+.markdown-body li{
+    line-height: 2.2rem;
+}
+
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
