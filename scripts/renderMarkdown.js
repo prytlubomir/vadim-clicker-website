@@ -65,7 +65,7 @@ async function renderMarkdown(markdownUrl){
 
 const html = document.querySelector("html");
 if (html.getAttribute('lang') === "uk") {
-    renderMarkdown("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/main/README.ua_uk.md");
+    renderMarkdown("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/release/README.ua_uk.md");
 } else {
-    renderMarkdown("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/main/README.md");
+    renderMarkdown("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/release/README.md");
 }
