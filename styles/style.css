@@ -1,3 +1,14 @@
+:root {
+    --content-line-height: 1.2em;
+    --content-padding-x: 7em;
+    --content-padding-y: 1em;
+    --content-padding-x-min: 1em;
+    --content-padding-y-min: 1em;
+    --header-height: calc(
+        var(--content-line-height) + var(--content-padding-y) * 2
+    );
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,6 +18,60 @@ body {
     padding: 0;
 }
 
+.header {
+    z-index: 2;
+    position: sticky !important;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(40,40,50,.5);
+    backdrop-filter: blur(120px);
+    height: var(--header-height);
+}
+
+.logo img {
+    height: var(--content-line-height);
+}
+
+.lang button {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.lang-toggle{
+    color: #ddd;
+}
+
+.lang-menu {
+    --transition-duration: 0.1s;
+    position: absolute;
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0.5em;
+    height: 0;
+    overflow: hidden;
+    transition:
+        height var(--transition-duration),
+        padding var(--transition-duration);
+    background: rgba(100, 100, 200, 0.9);
+    border-radius: 0.5em;
+    margin-left: -0.5em;
+}
+
+.lang-menu.active {
+    height: 3.4em;
+    padding: 0.5em;
+    transition:
+        height var(--transition-duration),
+        padding var(--transition-duration);
+}
+
+.lang-option{
+    color: #fefefe;
+}
+
 .h1 {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
@@ -14,15 +79,15 @@ body {
 }
 
 .content {
-    z-index: 1;
-    position: relative;
     width: 100%;
     color: #ddd;
     font-family: "Arial";
-    padding: 1rem 7rem;
+    padding: var(--content-padding-y) var(--content-padding-x);
 }
 
-.first-screen{
+.first-screen {
+    z-index: 2;
+    position: relative;
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -55,15 +120,15 @@ body {
     background-color: #ded;
 }
 
-.about{
+.about {
     backdrop-filter: blur(120px);
 }
 
 /* Background SVG / layering */
 
 @media screen and (max-width: 638px) {
-    .content{
-        padding: 1rem;
+    .content {
+        padding: var(--content-padding-y-min) var(--content-padding-x-min);
     }
 }
 

@@ -8,6 +8,7 @@
             content="beVSAVOvNQLXHBJhVxmQ-vB5Fe6qvV-VJR1q1cFdQH4"
         />
         <title>Vadim's Clicker</title>
+        <script src="scripts/language-redirect.js"></script>
         <link rel="stylesheet" href="styles/style.css" />
         <link rel="stylesheet" href="styles/ripples.css" />
         <link rel="stylesheet" href="styles/markdown.css" />
@@ -45,6 +46,20 @@
                     >
                 </div>
             </section>
+            <header class="content header">
+                <div class="logo">
+                    <a href="#">
+                        <img src="logo.svg" alt="Logo">
+                    </a>
+                </div>
+                <div id="lang" class="lang">
+                    <button class="lang-toggle" id="lang-toggle">EN</button>
+                    <ul class="lang-menu">
+                        <li><button class="lang-option" value="en">EN</button></li>
+                        <li><button class="lang-option" value="uk">UA</button></li>
+                    </ul>
+                </div>
+            </header>
             <article class="content about" id="about">
                 <!--<h2>Vadim's Clicker</h2>
                 <p>A mouse automation app, controlled by keyboard hotkeys.</p>
@@ -53,5 +68,6 @@
         </section>
         <script src="scripts/ripples.js"></script>
         <script type="module" src="scripts/renderMarkdown.js"></script>
+        <script src="scripts/language-switch.js"></script>
     </body>
 </html>
