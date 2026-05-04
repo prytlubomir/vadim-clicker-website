@@ -27,14 +27,17 @@ function switchToPreferredLang() {
     }
 }
 
+
 function autoRedirect() {
     if (switchToPreferredLang()) {
         return;
     }
-    if (navigator.language.includes("en")) {
-        changeLang("en");
-    } else if (navigator.language.includes("uk"))
-        changeLang("uk");
+    const supportedLanguages = Object.keys(langMap);
+    supportedLanguages.forEach(localization => {
+        if (navigator.language.includes(localization)) {
+            changeLang(localization);
+        }
+    });
 }
 
 
