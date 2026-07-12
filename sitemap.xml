@@ -2,15 +2,18 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://prytlubomir.github.io/vadim-clicker-website/</loc>
+        <loc>https://vadimsclicker.pryt.space/</loc>
     </url>
     <url>
-        <loc>https://prytlubomir.github.io/vadim-clicker-website/index.ua_uk.html</loc>
+        <loc>https://vadimsclicker.pryt.space/index.html</loc>
     </url>
     <url>
-        <loc>https://prytlubomir.github.io/vadim-clicker-website/tui.png</loc>
+        <loc>https://vadimsclicker.pryt.space/index.ua_uk.html</loc>
     </url>
     <url>
-        <loc>https://prytlubomir.github.io/vadim-clicker-website/clicker.exe</loc>
+        <loc>https://vadimsclicker.pryt.space/tui.png</loc>
+    </url>
+    <url>
+        <loc>https://vadimsclicker.pryt.space/clicker.exe</loc>
     </url>
 </urlset>
