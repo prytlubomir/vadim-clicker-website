@@ -2,7 +2,7 @@ import { createServer } from 'node:http';
 import fs from 'node:fs';
 
 
-function handler(req, res) {
+async function handler(req, res) {
     console.log('req');
     console.log(req.url);
     res.writeHead(200);
