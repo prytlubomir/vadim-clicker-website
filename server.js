@@ -1,16 +1,23 @@
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import fs from 'node:fs';
 
 
-async function handler(req, res) {
+function handler(req, res) {
     console.log('req');
+    console.log(req.url);
     res.writeHead(200);
     let filepath = 'index.html';
     if (req.url != "/") {
         filepath = './'+req.url;
     }
-    let content = await readFile(filepath);
-    res.end(content);
+    console.log('filepath', filepath);
+    fs.readFile(filepath, (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        res.end(data);
+    });
 }
 
 
