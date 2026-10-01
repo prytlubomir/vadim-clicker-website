@@ -78,11 +78,15 @@ body {
     text-align: center;
 }
 
+.container {
+    padding: var(--content-padding-y) var(--content-padding-x);
+}
+
+
 .content {
     width: 100%;
     color: #ddd;
     font-family: "Arial";
-    padding: var(--content-padding-y) var(--content-padding-x);
 }
 
 .first-screen {
@@ -124,10 +128,37 @@ body {
     backdrop-filter: blur(120px);
 }
 
+.footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-text {
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.footer-heading {
+    color: #ddd;
+    font-family: "Arial";
+    font-weight: normal;
+}
+
+.footer-link {
+    color: #111;
+}
+
+.footer-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
 /* Background SVG / layering */
 
 @media screen and (max-width: 638px) {
-    .content {
+    .container {
         padding: var(--content-padding-y-min) var(--content-padding-x-min);
     }
 }

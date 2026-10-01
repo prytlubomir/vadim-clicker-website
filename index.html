@@ -1,75 +1,76 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="google-site-verification"
-            content="beVSAVOvNQLXHBJhVxmQ-vB5Fe6qvV-VJR1q1cFdQH4"
-        />
-        <title>Vadim's Clicker</title>
-        <script src="scripts/language-redirect.js"></script>
-        <link rel="stylesheet" href="styles/style.css" />
-        <link rel="stylesheet" href="styles/ripples.css" />
-        <link rel="stylesheet" href="styles/markdown.css" />
-        <link rel="icon" type="image/x-icon" href="logo.svg" />
-        <link rel="canonical" href="https://vadimsclicker.pryt.space" />
 
-    </head>
-    <body>
-        <section class="main">
-            <div class="background">
-                <!-- SVG animated background: click pulses + ripples -->
-                <svg
-                    class="bg-svg"
-                    viewBox="0 0 100 100"
-                    preserveAspectRatio="xMidYMid slice"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                >
-                    <rect width="100" height="100" fill="#020202" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="beVSAVOvNQLXHBJhVxmQ-vB5Fe6qvV-VJR1q1cFdQH4" />
+    <title>Vadim's Clicker</title>
+    <script src="scripts/language-redirect.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/ripples.css" />
+    <link rel="stylesheet" href="styles/markdown.css" />
+    <link rel="icon" type="image/x-icon" href="logo.svg" />
+    <link rel="canonical" href="https://vadimsclicker.pryt.space" />
 
-                    <!-- cursor-following ripples: empty group populated by JS -->
-                    <g id="cursor-ripples"></g>
-                </svg>
+</head>
+
+<body>
+    <section class="main">
+        <div class="background">
+            <!-- SVG animated background: click pulses + ripples -->
+            <svg class="bg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <rect width="100" height="100" fill="#020202" />
+
+                <!-- cursor-following ripples: empty group populated by JS -->
+                <g id="cursor-ripples"></g>
+            </svg>
+        </div>
+        <section class="content container first-screen">
+            <h1 class="h1">Vadim's Clicker</h1>
+            <p>An autoclicker activated by a designated keyboard button.</p>
+            <div class="buttons">
+                <a class="download" href="VadimsClicker.exe" type="download"><button>Download for Windows</button></a>
+                <a class="source"
+                    href="https://github.com/prytlubomir/vadim-clicker/tree/release"><button>GitHub</button></a>
             </div>
-            <section class="content first-screen">
-                <h1 class="h1">Vadim's Clicker</h1>
-                <p>An autoclicker activated by a designated keyboard button.</p>
-                <div class="buttons">
-                    <a class="download" href="VadimsClicker.exe" type="download"
-                        ><button>Download for Windows</button></a
-                    >
-                    <a
-                        class="source"
-                        href="https://github.com/prytlubomir/vadim-clicker/tree/release"
-                        ><button>GitHub</button></a
-                    >
-                </div>
-            </section>
-            <header class="content header">
-                <div class="logo">
-                    <a href="#">
-                        <img src="logo.svg" alt="Logo">
-                    </a>
-                </div>
-                <div id="lang" class="lang">
-                    <button class="lang-toggle" id="lang-toggle">EN</button>
-                    <ul class="lang-menu">
-                        <li><button class="lang-option" value="en">EN</button></li>
-                        <li><button class="lang-option" value="uk">UA</button></li>
-                    </ul>
-                </div>
-            </header>
-            <article class="content about" id="about">
-                <!--<h2>Vadim's Clicker</h2>
+        </section>
+        <header class="content container header">
+            <div class="logo">
+                <a href="#">
+                    <img src="logo.svg" alt="Logo">
+                </a>
+            </div>
+            <div id="lang" class="lang">
+                <button class="lang-toggle" id="lang-toggle">EN</button>
+                <ul class="lang-menu">
+                    <li><button class="lang-option" value="en">EN</button></li>
+                    <li><button class="lang-option" value="uk">UA</button></li>
+                </ul>
+            </div>
+        </header>
+        <article class="content container about" id="about">
+            <!--<h2>Vadim's Clicker</h2>
                 <p>A mouse automation app, controlled by keyboard hotkeys.</p>
                 <p>Created by the request of Vadim.</p>-->
-            </article>
-        </section>
-        <script src="scripts/ripples.js"></script>
-        <script type="module" src="scripts/renderMarkdown.js"></script>
-        <script src="scripts/language-switch.js"></script> 
-    </body>
+        </article>
+    </section>
+    <footer class="footer container">
+        <div class="footer-section made-by">
+            <h4 class="footer-text footer-heading">Made by</h4>
+            <p class="footer-text dev-name">Liubomyr Pryt</p>
+            <a href="https://pryt.space" class="footer-text  footer-link dev-website">www.pryt.space</a>
+        </div>
+        <div class="footer-section other-projects">
+            <h4 class="footer-text footer-heading">Other projects</h4>
+            <a href="https://github.com/prytlubomir"
+                class="footer-text footer-link dev-github">prytlubomir.github.com</a>
+        </div>
+    </footer>
+    <script src="scripts/ripples.js"></script>
+    <script type="module" src="scripts/renderMarkdown.js"></script>
+    <script src="scripts/language-switch.js"></script>
+</body>
+
 </html>
