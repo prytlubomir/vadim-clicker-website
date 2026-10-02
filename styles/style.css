@@ -142,23 +142,35 @@ body {
     flex-wrap: wrap;
 }
 
-.footer-text {
-    padding: 2px;
-    border-radius: 2px;
+.footer-section ul{
+    padding-left: 2ex;
 }
 
-.footer-heading {
-    color: #ddd;
-    font-family: "Arial";
-    font-weight: normal;
-}
-
-.footer-link {
+.footer-section li::marker {
     color: #111;
 }
 
+.footer-text {
+    padding: 2px;
+    border-radius: 2px;
+    color: #080808;
+    font-weight: bold;
+    text-shadow: black 2px 2px 3px;
+}
+
+.footer-heading {
+    color: #444;
+    font-family: "Arial";
+    font-weight: normal;
+    list-style-type: none;
+}
+
+.footer-link {
+    color: inherit;
+}
+
 .footer-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(230, 230, 230);
 }
 
 
