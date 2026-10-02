@@ -1,6 +1,5 @@
-User-agent: Googlebot
-
 User-agent: *
+Disallow: 
 Allow: /
 
 Sitemap: https://prytlubomir.github.io/vadim-clicker-website/sitemap.xml
