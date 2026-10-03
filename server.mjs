@@ -16,7 +16,7 @@ function errorHandler(res, err) {
 }
 
 
-async function handler(req, res) {
+async function fileserver(req, res) {
     console.log(req.url);
     let filepath = 'index.html';
     if (req.url != "/") {
@@ -33,7 +33,7 @@ async function handler(req, res) {
 const host = '127.0.0.1';
 const port = 3000;
 
-const server = createServer(handler);
+const server = createServer(fileserver);
 server.listen(port, host, () => {
     console.log('Server started at', host+':'+3000);
 });
