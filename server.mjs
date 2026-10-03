@@ -1,6 +1,8 @@
 import { createServer } from 'node:http';
 import fs from 'node:fs';
 
+import mime from 'mime';
+
 
 function errorHandler(res, err) {
     if (err.code == 'ENOENT') {
@@ -27,7 +29,8 @@ async function handler(req, res) {
             errorHandler(res, err)
             return;
         }
-        res.writeHead(200);
+        console.log('path', filepath, 'type', mime.getType(filepath));
+        res.writeHead(200, {'Content-Type': mime.getType(filepath)});
         res.end(data);
     });
 }
