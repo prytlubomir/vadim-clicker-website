@@ -6,7 +6,7 @@ import mime from 'mime';
 
 async function fileserver(req, res) {
     console.log(req.url);
-    let filepath = './'+req.url;;
+    let filepath = './'+req.url;
     if (req.url == "/") {
         filepath = 'index.html'
     }
