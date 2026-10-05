@@ -2,6 +2,8 @@ import fs from 'node:fs';
 
 import mime from 'mime';
 
+import './md.mjs'
+
 
 function getPath(req) {
     let filepath = './' + req.url;
@@ -16,7 +18,13 @@ async function fileserver(req, res) {
         let filepath = getPath(req);
         try {
             let data = fs.readFileSync(filepath);
-            res.writeHead(200, { 'Content-Type': mime.getType(filepath) });
+            let mimeType = mime.getType(filepath);
+            if (mimeType == 'text/html') {
+                console.log('brakes here');
+                data = md.insertMd(data);
+                console.log('if not reaches here')
+            }
+            res.writeHead(200, { 'Content-Type': mimeType });
             res.write(data);
         } catch (err) {
             res.writeHead(404, { 'Content-Type': 'text/html' });
