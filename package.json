@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/prytlubomir/vadim-clicker-website#readme",
   "dependencies": {
+    "ejs": "^7.0.1",
+    "marked": "^18.0.14",
     "mime": "^4.1.0",
     "node-addon-api": "^8.9.2"
   }
