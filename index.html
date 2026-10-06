@@ -51,10 +51,13 @@
             </div>
         </header>
         <article class="content container about" id="about">
-            <%= renderMarkdown("https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/release/README.ua_uk.md") %>
-            <!--<h2>Vadim's Clicker</h2>
-                <p>A mouse automation app, controlled by keyboard hotkeys.</p>
-                <p>Created by the request of Vadim.</p>-->
+            <div class="markdown-body">
+                <%- 
+                await renderMarkdown(
+                    "https://raw.githubusercontent.com/prytlubomir/vadim-clicker/refs/heads/release/README.md"
+                )
+                %>
+            </div>
         </article>
     </section>
     <footer class="footer container">
@@ -74,7 +77,7 @@
         </div>
     </footer>
     <script src="scripts/ripples.js"></script>
-    <script type="module" src="scripts/renderMarkdown.js"></script>
+    <script src="scripts/fixMarkdown.js"></script>
     <script src="scripts/language-switch.js"></script>
 </body>
 

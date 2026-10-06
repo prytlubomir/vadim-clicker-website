@@ -2,7 +2,7 @@ import fs from 'node:fs';
 
 import mime from 'mime';
 
-import './md.mjs'
+import md from './md.mjs';
 
 
 function getPath(req) {
@@ -13,17 +13,26 @@ function getPath(req) {
     return filepath;
 }
 
+async function applyMods(data, mimeType) {
+    let modded = data;
+    switch (mimeType) {
+        case 'text/html':
+            try {
+                modded = await md.insertMd(data);
+            } catch (err) {
+                console.log(err);
+            }
+    }
+    return modded
+}
+
 async function fileserver(req, res) {
     if (req.method == "GET") {
         let filepath = getPath(req);
         try {
-            let data = fs.readFileSync(filepath);
+            let data = fs.readFileSync(filepath, 'utf-8');
             let mimeType = mime.getType(filepath);
-            if (mimeType == 'text/html') {
-                console.log('brakes here');
-                data = md.insertMd(data);
-                console.log('if not reaches here')
-            }
+            data = await applyMods(data, mimeType);
             res.writeHead(200, { 'Content-Type': mimeType });
             res.write(data);
         } catch (err) {
