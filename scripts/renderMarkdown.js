@@ -9,7 +9,7 @@ import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
  */
 function fixHeadingHierarchy(element, allowMainHeading=false){
     
-    let h1s = element.querySelectorAll('hi');
+    let h1s = element.querySelectorAll('h1');
     if (allowMainHeading){
         h1s.shift();
     }
