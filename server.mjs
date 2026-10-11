@@ -6,7 +6,7 @@ const port = 3000;
 
 const server = createServer((req, res) => {
     console.log(req.method, req.url);
-    fileserver.serve(req, res);
+    fileserver.server(req, res);
 });
 server.listen(port, host, () => {
     console.log('Server started at', host+':'+3000);

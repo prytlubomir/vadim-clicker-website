@@ -8,7 +8,7 @@ import md from './md.mjs';
 function getPath(req) {
     let filepath = './' + req.url;
     if (req.url == "/") {
-        filepath = 'index.html'
+        filepath = 'index.html';
     }
     return filepath;
 }
@@ -23,29 +23,48 @@ async function applyMods(data, mimeType) {
                 console.log(err);
             }
     }
-    return modded
+    return modded;
 }
 
-async function fileserver(req, res) {
+async function error(code, message) {
+    return {
+        code: code,
+        content: '<h1>' + code + '</h1><p>' + message + '</p>',
+        headers: { 'Content-Type': 'text/html'}
+    }
+}
+
+async function serveFile(filepath) {
+    let result = {};
+    try {
+        let data = fs.readFileSync(filepath, 'utf-8');
+        let mimeType = mime.getType(filepath);
+        data = await applyMods(data, mimeType);
+        result = {
+            code: 200,
+            content: data,
+            headers: { 'Content-Type': mimeType }
+        }
+    } catch (err) {
+        result = error(404, 'Content not found');
+    }
+
+    return result;
+}
+
+async function server(req, res) {
+    let result = { code: 500, content: 'Not assigned', headers: {} }
     if (req.method == "GET") {
         let filepath = getPath(req);
-        try {
-            let data = fs.readFileSync(filepath, 'utf-8');
-            let mimeType = mime.getType(filepath);
-            data = await applyMods(data, mimeType);
-            res.writeHead(200, { 'Content-Type': mimeType });
-            res.write(data);
-        } catch (err) {
-            res.writeHead(404, { 'Content-Type': 'text/html' });
-            res.write('<h1> 404 </h1><p> Content not found </p>');
-        } 
+        result = await serveFile(filepath);
     } else {
-        res.writeHead(405, { 'Content-Type': 'text/html', 'Allowed': 'GET' });
-        res.write('<h1> 405 </h1><p> Method "'+req.method+'" is not allowed!</p>');
+        result = error(405, 'Method "'+req.method+'" is not allowed!')
     }
+    res.writeHead(result.code, result.headers);
+    res.write(result.content);
     res.end();
 }
 
 export default {
-    serve: fileserver
+    server
 }
