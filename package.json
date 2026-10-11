@@ -2,7 +2,7 @@
   "name": "vadim-clicker-website",
   "version": "1.0.0",
   "description": "[Vadim's Clicker](https://github.com/prytlubomir/vadim-clicker) project website by [Pryt Liubomyr](pryt.space).",
-  "main": "server.js",
+  "main": "server.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.mjs"
