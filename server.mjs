@@ -9,5 +9,5 @@ const server = createServer((req, res) => {
     fileserver.server(req, res);
 });
 server.listen(port, host, () => {
-    console.log('Server started at', host+':'+3000);
+    console.log('Server started at', host+':'+port);
 });
