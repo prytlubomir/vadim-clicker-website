@@ -28,8 +28,8 @@ async function applyMods(data, mimeType) {
 
 function error(code, message) {
     return {
-        code: code,
-        content: '<h1>' + code + '</h1><p>' + message + '</p>',
+        statusCode: code,
+        body: '<h1>' + code + '</h1><p>' + message + '</p>',
         headers: { 'Content-Type': 'text/html'}
     }
 }
@@ -41,8 +41,8 @@ async function serveFile(filepath) {
         let mimeType = mime.getType(filepath);
         data = await applyMods(data, mimeType);
         result = {
-            code: 200,
-            content: data,
+            statusCode: 200,
+            body: data,
             headers: { 'Content-Type': mimeType }
         }
     } catch (err) {
@@ -53,15 +53,15 @@ async function serveFile(filepath) {
 }
 
 async function server(req, res) {
-    let result = { code: 500, content: 'Not assigned', headers: {} }
+    let result = { statusCode: 500, body: 'Not assigned', headers: {} }
     if (req.method == "GET") {
         let filepath = parseFilePath(req.url);
         result = await serveFile(filepath);
     } else {
         result = error(405, 'Method "'+req.method+'" is not allowed!')
     }
-    res.writeHead(result.code, result.headers);
-    res.write(result.content);
+    res.writeHead(result.statusCode, result.headers);
+    res.write(result.body);
     res.end();
 }
 
