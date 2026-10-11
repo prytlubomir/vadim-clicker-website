@@ -5,9 +5,9 @@ import mime from 'mime';
 import md from './md.mjs';
 
 
-function getPath(req) {
-    let filepath = './' + req.url;
-    if (req.url == "/") {
+function parseFilePath(url) {
+    let filepath = './' + url;
+    if (url == "/") {
         filepath = 'index.html';
     }
     return filepath;
@@ -55,7 +55,7 @@ async function serveFile(filepath) {
 async function server(req, res) {
     let result = { code: 500, content: 'Not assigned', headers: {} }
     if (req.method == "GET") {
-        let filepath = getPath(req);
+        let filepath = parseFilePath(req.url);
         result = await serveFile(filepath);
     } else {
         result = error(405, 'Method "'+req.method+'" is not allowed!')
