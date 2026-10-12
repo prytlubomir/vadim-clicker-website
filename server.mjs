@@ -11,3 +11,7 @@ const server = createServer((req, res) => {
 server.listen(port, host, () => {
     console.log('Server started at', host+':'+port);
 });
+
+export {
+    server, host, port
+}
