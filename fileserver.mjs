@@ -26,7 +26,7 @@ async function applyMods(data, mimeType) {
     return modded;
 }
 
-async function error(code, message) {
+function error(code, message) {
     return {
         code: code,
         content: '<h1>' + code + '</h1><p>' + message + '</p>',
