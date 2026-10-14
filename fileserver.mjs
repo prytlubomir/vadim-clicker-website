@@ -1,9 +1,34 @@
+import querystring from 'node:querystring';
 import fs from 'node:fs';
 
 import mime from 'mime';
 
 import md from './md.mjs';
 
+
+/**
+ * 
+ * @param  {String} url - request URL
+ * @return {String}     - URL tail that contains only GET params
+ * 
+ *                         Example: "example.com/somepage?param=val
+ *                         - discarded - "example.com/somepage"
+ *                         - separator - "?"
+ *                         - return - "param=val"
+ */
+function separateParams(url) {
+    const [head, tail] = url.split('?');
+    return tail;
+}
+
+function paramRoute(url) {
+    const tail = separateParams(url);
+    let filepath = 'index.html'
+    if (tail) {
+        const params = querystring.parse(tail);
+        filepath = './' + params.path;
+    }
+}
 
 function parseFilePath(url) {
     let filepath = './' + url;
