@@ -17,3 +17,5 @@ async function handler(event) {
 
     return result;
 }
+
+export { handler };
