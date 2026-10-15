@@ -7,13 +7,12 @@ async function handler(event) {
         body: 'Not assigned',
         headers: {}
     }
-    
-    const req = event.requestContext.http;
-    if (req.method == "GET") {
-        let filepath = parseFilePath(req.path);
+
+    if (event.httpMethod == "GET") {
+        let filepath = parseFilePath(event.path);
         result = await serveFile(filepath);
     } else {
-        result = error(405, 'Method "'+req.method+'" is not allowed!')
+        result = error(405, 'Method "'+event.httpMethod+'" is not allowed!')
     }
 
     return result;
