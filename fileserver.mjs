@@ -2,6 +2,7 @@ import querystring from 'node:querystring';
 import fs from 'node:fs';
 
 import mime from 'mime';
+import isBinaryPath from 'is-binary-path';
 
 import md from './md.mjs';
 
@@ -61,10 +62,13 @@ function error(code, message) {
 
 async function serveFile(filepath) {
     let result = {};
-    try {
-        let data = fs.readFileSync(filepath, 'utf-8');
+    try {        
         let mimeType = mime.getType(filepath);
+        const encoding = isBinaryPath(filepath) ? '' : 'utf-8';
+        
+        let data = fs.readFileSync(filepath, encoding)
         data = await applyMods(data, mimeType);
+        
         result = {
             statusCode: 200,
             body: data,
