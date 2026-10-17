@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import fileserver from './fileserver.mjs';
+import fileserver from './modules/fileserver.mjs';
 
 const host = '127.0.0.1';
 const port = 3000;

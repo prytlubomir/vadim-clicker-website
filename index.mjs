@@ -1,4 +1,4 @@
-import { parseFilePath, serveFile, error } from './fileserver.mjs';
+import { parseFilePath, serveFile, error } from './modules/fileserver.mjs';
 
 
 async function handler(event) {

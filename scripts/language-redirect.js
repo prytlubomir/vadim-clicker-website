@@ -1,8 +1,8 @@
 const DEBUG = false;
 
 const langMap = {
-    en: "index.html",
-    uk: "index.ua_uk.html",
+    en: "/index.html",
+    uk: "/pages/index.ua_uk.html",
 };
 
 
