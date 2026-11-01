@@ -2,10 +2,10 @@
   "name": "vadim-clicker-website",
   "version": "1.0.0",
   "description": "[Vadim's Clicker](https://github.com/prytlubomir/vadim-clicker) project website by [Pryt Liubomyr](pryt.space).",
-  "main": "index.mjs",
+  "main": "index.js",
   "scripts": {
     "test": "node --test test.mjs",
-    "start": "node index.mjs"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/prytlubomir/vadim-clicker-website/issues"
   },

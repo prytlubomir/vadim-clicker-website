@@ -1,7 +1,7 @@
 import { describe, test, after } from 'node:test';
 import assert from 'node:assert';
 
-import { server, host, port } from './index.mjs';
+import { server, host, port } from './index.js';
 
 
 function testUrl(sufix = '') {
