@@ -65,15 +65,10 @@ async function serveFile(filepath) {
     try {        
         let mimeType = mime.getType(filepath);
         const isBinary = isBinaryPath(filepath);
-        const encoding = isBinary ? 'binary' : 'utf-8';
+        const encoding = isBinary ? '' : 'utf-8';
         
         let data = fs.readFileSync(filepath, encoding)
         data = await applyMods(data, mimeType);
-
-        // if (isBinary) {
-        //     let buffer = Buffer.from(data, encoding);
-        //     data = buffer.toString('base64');
-        // }
         
         result = {
             statusCode: 200,
