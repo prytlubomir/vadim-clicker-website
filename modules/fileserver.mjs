@@ -62,7 +62,7 @@ function error(code, message) {
 
 async function serveFile(filepath) {
     let result = {};
-    try {        
+    try {
         let mimeType = mime.getType(filepath);
         const isBinary = isBinaryPath(filepath);
         const encoding = isBinary ? '' : 'utf-8';
