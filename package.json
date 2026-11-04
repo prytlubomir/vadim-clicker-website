@@ -4,7 +4,7 @@
   "description": "[Vadim's Clicker](https://github.com/prytlubomir/vadim-clicker) project website by [Pryt Liubomyr](pryt.space).",
   "main": "index.js",
   "scripts": {
-    "test": "node --test test.mjs",
+    "test": "node --test",
     "start": "node index.js"
   },
   "repository": {

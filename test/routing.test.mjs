@@ -1,7 +1,7 @@
 import { describe, test, after } from 'node:test';
 import assert from 'node:assert';
 
-import { server, host, port } from './index.js';
+import { server, host, port } from '../index.js';
 
 
 function testUrl(sufix = '') {
@@ -16,7 +16,7 @@ async function post(url, fallback = 'timeout') {
     }
 }
 
-describe('Integration testing', () => {
+describe('Routing test', () => {
     after(() => {
         return new Promise((resolve) => { server.close(resolve) });
     })
