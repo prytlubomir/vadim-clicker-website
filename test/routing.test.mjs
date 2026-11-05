@@ -1,11 +1,9 @@
 import { describe, test, after } from 'node:test';
 import assert from 'node:assert';
 
-import { server, host, port } from '../index.js';
-
 
 function testUrl(sufix = '') {
-    return 'http://' + host + ':' + port + '/' + sufix
+    return process.env.TEST_SERVER_ORIGIN + '/' + sufix;
 }
 
 async function post(url, fallback = 'timeout') {
@@ -17,9 +15,6 @@ async function post(url, fallback = 'timeout') {
 }
 
 describe('Routing test', () => {
-    after(() => {
-        return new Promise((resolve) => { server.close(resolve) });
-    })
 
     // Success responses
 

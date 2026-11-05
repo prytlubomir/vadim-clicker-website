@@ -3,17 +3,12 @@ import assert from 'node:assert';
 
 import fs from 'node:fs';
 
-import { server, host, port } from '../index.js';
-
 
 function testUrl(sufix = '') {
-    return 'http://' + host + ':' + port + '/' + sufix
+    return process.env.TEST_SERVER_ORIGIN + '/' + sufix;
 }
 
 describe('Response integrity test', () => {
-    after(() => {
-        return new Promise((resolve) => { server.close(resolve) });
-    })
 
     test('Request text', async () => {
         const path = "styles/style.css";
