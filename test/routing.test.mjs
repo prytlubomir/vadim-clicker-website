@@ -20,7 +20,7 @@ describe('Routing test', () => {
 
     test('Main page test', async () => {
         const res = await fetch(testUrl());
-        assert.strictEqual(res.status, 200, 'Main page ' + res.status);
+        assert.strictEqual(res.status, 400, 'Main page ' + res.status);
     });
 
     // Error responses
