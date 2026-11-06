@@ -12,4 +12,8 @@ jobs:
         with:
           node-version: '24'
       - run: npm i
-      - run: npm test  
+      - run: npm test
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world"
