@@ -1,4 +1,4 @@
-name: run-tests
+name: deploy-version
 on:
   push:
     branches:
