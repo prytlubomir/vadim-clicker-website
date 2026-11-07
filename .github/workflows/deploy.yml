@@ -2,7 +2,7 @@ name: deploy-version
 on:
   push:
     branches:
-      - workflows
+      - main
 
 env:
   AWS_REGION: eu-west-2
