@@ -18,14 +18,29 @@ jobs:
           node-version: '24'
       - run: npm i
       - run: npm test
-  build:
+  # build:
+  #   runs-on: ubuntu-latest
+  #   needs: [test]
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #     - name: Create a ZIP-archive  
+  #       run: git archive --format=zip --output artifact.zip HEAD
+  #     - name: Install dependencies
+  #       run: npm i
+  #     - name: Add node_modules to the archive
+  #       run: zip -r artifact.zip node_modules
+  deploy:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [build]
     steps:
-      - uses: actions/checkout@v6
-      - name: Create a ZIP-archive  
-        run: git archive --format=zip --output artifact.zip HEAD
-      - name: Install dependencies
-        run: npm i
-      - name: Add node_modules to the archive
-        run: zip -r artifact.zip node_modules
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Deploy
+        run: aws lambda-web deploy --name ${{env.FUNCTION_NAME}} --code .
