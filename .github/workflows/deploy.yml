@@ -31,5 +31,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
+      - name: Build
+        run: npm i
       - name: Deploy
         run: aws lambda-web deploy --name ${{env.FUNCTION_NAME}} --code .
