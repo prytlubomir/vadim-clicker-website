@@ -6,7 +6,7 @@ on:
 
 env:
   AWS_REGION: eu-west-2
-  FUNCTION_NAME: wftest
+  FUNCTION_NAME: vcw-webfunc
 
 jobs:
   test:
@@ -34,4 +34,10 @@ jobs:
       - name: Build
         run: npm i
       - name: Deploy
-        run: aws lambda-web deploy --name ${{env.FUNCTION_NAME}} --code .
+        run: |
+          aws lambda-web deploy \
+            --name ${{env.FUNCTION_NAME}} \
+            --code . \
+            --region eu-west-2 \
+            --profile vcw-main \
+            --bucket-name vcw-main-deploy
