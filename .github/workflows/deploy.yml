@@ -39,5 +39,4 @@ jobs:
             --name ${{env.FUNCTION_NAME}} \
             --code . \
             --region eu-west-2 \
-            --profile vcw-main \
             --bucket-name vcw-main-deploy
