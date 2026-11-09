@@ -8,12 +8,12 @@
         <loc>https://vadimsclicker.pryt.space/index.html</loc>
     </url>
     <url>
-        <loc>https://vadimsclicker.pryt.space/index.ua_uk.html</loc>
+        <loc>https://vadimsclicker.pryt.space/pages/index.ua_uk.html</loc>
     </url>
     <url>
-        <loc>https://vadimsclicker.pryt.space/tui.png</loc>
+        <loc>https://vadimsclicker.pryt.space/cdn/tui.png</loc>
     </url>
     <url>
-        <loc>https://vadimsclicker.pryt.space/clicker.exe</loc>
+        <loc>https://vadimsclicker.pryt.space/cdn/clicker.exe</loc>
     </url>
 </urlset>
