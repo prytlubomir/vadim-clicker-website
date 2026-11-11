@@ -17,27 +17,42 @@ function changeLang(lang) {
 }
 
 function switchToPreferredLang() {
+    if (DEBUG) {
+        console.log('debug mode on');
+        localStorage.removeItem('lang');
+    }
     if (preferredLang != null) {
         if (Object.hasOwn(langMap, preferredLang)) {
             changeLang(preferredLang);
             return true;
-        } else if (!DEBUG) {
-            localStorage.removeItem('lang');
         }
     }
 }
 
+function compareLangCodes(lang1, lang2) {
+    return lang1.includes(lang2) || lang2.includes(lang1);
+}
+
+function autoPickLang() {
+    const supportedLanguages = Object.keys(langMap);
+
+    navigator.languages.every(browserLang => {
+        if (compareLangCodes(browserLang, currentLang)) {
+            return false;
+        }
+        supportedLanguages.forEach(localization => {
+            if (compareLangCodes(browserLang, localization)) {
+                changeLang(localization);
+            }
+        });
+    });
+}
 
 function autoRedirect() {
     if (switchToPreferredLang()) {
         return;
     }
-    const supportedLanguages = Object.keys(langMap);
-    supportedLanguages.forEach(localization => {
-        if (navigator.language.includes(localization)) {
-            changeLang(localization);
-        }
-    });
+    autoPickLang();
 }
 
 
