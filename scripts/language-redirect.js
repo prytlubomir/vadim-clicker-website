@@ -52,7 +52,10 @@ function autoRedirect() {
     if (switchToPreferredLang()) {
         return;
     }
-    autoPickLang();
+
+    if (window.location.pathname == "/" || window.location.pathname == "") {
+        autoPickLang();
+    }
 }
 
 
