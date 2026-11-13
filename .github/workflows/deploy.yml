@@ -2,11 +2,11 @@ name: deploy-version
 on:
   push:
     branches:
-      - main
+      - workflows
 
 env:
   AWS_REGION: eu-west-2
-  FUNCTION_NAME: vcw-webfunc
+  FUNCTION_NAME: wftest
 
 jobs:
   test:
@@ -34,9 +34,4 @@ jobs:
       - name: Build
         run: npm i
       - name: Deploy
-        run: |
-          aws lambda-web deploy \
-            --name ${{env.FUNCTION_NAME}} \
-            --code . \
-            --region eu-west-2 \
-            --bucket-name vcw-main-deploy
+        run: aws lambda-web deploy --name ${{env.FUNCTION_NAME}} --code .
