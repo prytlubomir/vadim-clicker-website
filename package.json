@@ -4,7 +4,7 @@
   "description": "[Vadim's Clicker](https://github.com/prytlubomir/vadim-clicker) project website by [Pryt Liubomyr](pryt.space).",
   "main": "index.js",
   "scripts": {
-    "test": "node --test --test-global-setup=\"test/setup-module.cjs\" --test-reporter=dot --test-reporter=tap --test-reporter-destination=stdout --test-reporter-destination=.test-report.txt \"test/*.test.{cjs,mjs,js}\"",
+    "test": "node --test --test-global-setup=\"test/setup-module.cjs\" --test-reporter=spec --test-reporter=tap --test-reporter-destination=stdout --test-reporter-destination=.test-report.txt \"test/*.test.{cjs,mjs,js}\"",
     "start": "node index.js"
   },
   "repository": {
