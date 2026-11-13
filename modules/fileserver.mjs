@@ -24,7 +24,7 @@ function separateParams(url) {
 
 function paramRoute(url) {
     const tail = separateParams(url);
-    let filepath = 'index.html'
+    let filepath = 'pages/index.html'
     if (tail) {
         const params = querystring.parse(tail);
         filepath = './' + params.path;
@@ -34,7 +34,7 @@ function paramRoute(url) {
 function parseFilePath(url) {
     let filepath = './' + url;
     if (url == "/") {
-        filepath = 'index.html';
+        filepath = 'pages/index.html';
     }
     return filepath;
 }
