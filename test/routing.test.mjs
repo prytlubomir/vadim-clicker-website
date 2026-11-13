@@ -23,6 +23,27 @@ describe('Routing test', () => {
         assert.strictEqual(res.status, 200, 'Main page ' + res.status);
     });
 
+    // Slash at the end
+    test('Main page without a slash', async () => {
+        const res = await fetch(process.env.TEST_SERVER_ORIGIN);
+        assert.strictEqual(res.status, 200, 'Main page does not work without a slash; Code: ' + res.status);
+    });
+
+    test('Main page with a slash', async () => {
+        const res = await fetch(process.env.TEST_SERVER_ORIGIN + "/");
+        assert.strictEqual(res.status, 200, 'Main page does not work with a slash; Code: ' + res.status);
+    });
+
+    test('A page without a slash', async () => {
+        const res = await fetch(process.env.TEST_SERVER_ORIGIN + '/pages/index.html');
+        assert.strictEqual(res.status, 200, 'Pages brake wihout a slash; Code: ' + res.status);
+    });
+
+    test('A page with a slash', async () => {
+        const res = await fetch(process.env.TEST_SERVER_ORIGIN + '/pages/index.html/');
+        assert.strictEqual(res.status, 200, 'Pages brake with a slash; Code: ' + res.status);
+    });
+    
     // Error responses
     // GET
     // 404
