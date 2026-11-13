@@ -36,6 +36,8 @@ function parseFilePath(url) {
     if (url == "/") {
         filepath = 'pages/index.html';
     }
+    console.log('url', url);
+    console.log('flp', filepath);
     return filepath;
 }
 
