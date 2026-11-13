@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - workflows
+      - testing 
 
 env:
   AWS_REGION: eu-west-2
