@@ -36,6 +36,9 @@ function parseFilePath(url) {
     if (url == "/") {
         filepath = 'pages/index.html';
     }
+    if (filepath.substring(filepath.length - 1) == '/') {
+        filepath = filepath.substring(0, filepath.length - 1);
+    }
     return filepath;
 }
 
