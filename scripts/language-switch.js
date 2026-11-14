@@ -6,7 +6,7 @@ const langOptions = Array.from(
 
 
 let langMenuOpen = false;
-function toggleLangMenu(e) {
+function toggleLangMenu() {
     if (!langMenuOpen)
         langMenu.classList.add('active');
     else
@@ -14,20 +14,32 @@ function toggleLangMenu(e) {
     langMenuOpen = !langMenuOpen;
 }
 
-function switchLanguage(e) {
-    let langISO = e.target.getAttribute('value');
+function menuReaction(e) {
     let langShort = e.target.innerText;
     langMenuToggle.innerText = langShort;
-    toggleLangMenu(e);
-    preferredLang = langISO;
-    localStorage.setItem('lang', preferredLang);
-    switchToPreferredLang();
+    toggleLangMenu();
+}
+
+function separateParams(url) {
+    const [head, tail] = url.split('?');
+    return tail ? tail : '';
+}
+
+function savePreference() {
+    const urlParams = separateParams(window.location.href);
+    console.log("urlparams", urlParams, typeof (urlParams));
+    if (urlParams.includes('langselect')) {
+        localStorage.setItem('lang', currentLang);
+    }
 }
 
 
+savePreference();
+
+// menu interactions
 langMenuToggle.onclick = toggleLangMenu;
 langOptions.forEach((option) => {
-    option.onclick = switchLanguage;
+    option.onclick = menuReaction;
 });
 
 let toggleText = document.querySelector(

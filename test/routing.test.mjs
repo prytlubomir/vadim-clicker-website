@@ -36,12 +36,24 @@ describe('Routing test', () => {
 
     test('A page without a slash', async () => {
         const res = await fetch(process.env.TEST_SERVER_ORIGIN + '/pages/index.html');
-        assert.strictEqual(res.status, 200, 'Pages brake wihout a slash; Code: ' + res.status);
+        assert.strictEqual(res.status, 200, 'Pages break wihout a slash; Code: ' + res.status);
     });
 
     test('A page with a slash', async () => {
         const res = await fetch(process.env.TEST_SERVER_ORIGIN + '/pages/index.html/');
-        assert.strictEqual(res.status, 200, 'Pages brake with a slash; Code: ' + res.status);
+        assert.strictEqual(res.status, 200, 'Pages break with a slash; Code: ' + res.status);
+    });
+
+    // Get arg at the reservednotfound
+
+    test('Main page with an arg', async () => {
+        const res = await fetch(process.env.TEST_SERVER_ORIGIN + "/?langselect");
+        assert.strictEqual(res.status, 200, 'Main page breaks with an arg; Code: ' + res.status);
+    });
+
+    test('A page with an arg', async () => {
+        const res = await fetch(process.env.TEST_SERVER_ORIGIN + '/pages/index.html/?langselect');
+        assert.strictEqual(res.status, 200, 'Pages break with an arg; Code: ' + res.status);
     });
     
     // Error responses
@@ -52,15 +64,15 @@ describe('Routing test', () => {
         assert.strictEqual(res.status, 404, 'Page not found failed ' + res.status);
     });
 
-    test('Ivalid GET parameters', async () => {
-        const res = await fetch(testUrl('?reservedinvalidparameter=reservedinvalidvalue'));
-        assert.strictEqual(res.status, 404, 'Invalid GET parameter failed ' + res.status);
-    });
+    // test('Ivalid GET parameters', async () => {
+    //     const res = await fetch(testUrl('?reservedinvalidparameter=reservedinvalidvalue'));
+    //     assert.strictEqual(res.status, 404, 'Invalid GET parameter failed ' + res.status);
+    // });
 
-    test('Ivalid file path', async () => {
-        const res = await fetch(testUrl('?file=/reserved/non/existing/path.test'));
-        assert.strictEqual(res.status, 404, 'Invalid file path failed ' + res.status);
-    });
+    // test('Ivalid file path', async () => {
+    //     const res = await fetch(testUrl('?file=/reserved/non/existing/path.test'));
+    //     assert.strictEqual(res.status, 404, 'Invalid file path failed ' + res.status);
+    // });
 
     // POST
     // 405

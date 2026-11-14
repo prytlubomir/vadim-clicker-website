@@ -16,10 +16,18 @@ function changeLang(lang) {
     }
 }
 
+function separateParams(url) {
+    const [head, tail] = url.split('?');
+    return tail ? tail : '';
+}
+
 function switchToPreferredLang() {
     if (DEBUG) {
         console.log('debug mode on');
         localStorage.removeItem('lang');
+    }
+    if (separateParams(window.location.href).includes('langselect')) {
+        return;
     }
     if (preferredLang != null) {
         if (Object.hasOwn(langMap, preferredLang)) {

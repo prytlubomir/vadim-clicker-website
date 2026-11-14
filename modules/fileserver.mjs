@@ -17,13 +17,19 @@ import md from './md.mjs';
  *                         - separator - "?"
  *                         - return - "param=val"
  */
-function separateParams(url) {
+
+function urlHead(url) {
+    const [head, tail] = url.split('?');
+    return head;
+}
+
+function urlTail(url) {
     const [head, tail] = url.split('?');
     return tail;
 }
 
 function paramRoute(url) {
-    const tail = separateParams(url);
+    const tail = urlTail(url);
     let filepath = 'pages/index.html'
     if (tail) {
         const params = querystring.parse(tail);
@@ -32,17 +38,14 @@ function paramRoute(url) {
 }
 
 function parseFilePath(url) {
-    let filepath = './' + url;
-    if (url == "/") {
+    let head = urlHead(url);
+    let filepath = './' + head;
+    if (head == "/") {
         filepath = 'pages/index.html';
     }
     if (filepath.substring(filepath.length - 1) == '/') {
-        console.log('fp', filepath);
         filepath = filepath.substring(0, filepath.length - 1);
-        console.log('fp', filepath);
     }
-    console.log('url', url);
-    console.log('flp', filepath);
     return filepath;
 }
 
