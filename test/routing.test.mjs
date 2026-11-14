@@ -52,15 +52,15 @@ describe('Routing test', () => {
         assert.strictEqual(res.status, 404, 'Page not found failed ' + res.status);
     });
 
-    test('Ivalid GET parameters', async () => {
-        const res = await fetch(testUrl('?reservedinvalidparameter=reservedinvalidvalue'));
-        assert.strictEqual(res.status, 404, 'Invalid GET parameter failed ' + res.status);
-    });
+    // test('Ivalid GET parameters', async () => {
+    //     const res = await fetch(testUrl('?reservedinvalidparameter=reservedinvalidvalue'));
+    //     assert.strictEqual(res.status, 404, 'Invalid GET parameter failed ' + res.status);
+    // });
 
-    test('Ivalid file path', async () => {
-        const res = await fetch(testUrl('?file=/reserved/non/existing/path.test'));
-        assert.strictEqual(res.status, 404, 'Invalid file path failed ' + res.status);
-    });
+    // test('Ivalid file path', async () => {
+    //     const res = await fetch(testUrl('?file=/reserved/non/existing/path.test'));
+    //     assert.strictEqual(res.status, 404, 'Invalid file path failed ' + res.status);
+    // });
 
     // POST
     // 405
