@@ -77,6 +77,13 @@ body {
 
 .lang-option{
     color: #fefefe;
+    text-decoration: none;
+    font-size: small;
+    padding: 1px 4px;
+}
+
+.lang-option:hover {
+    text-decoration: underline;
 }
 
 .h1 {
