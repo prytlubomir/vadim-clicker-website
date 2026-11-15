@@ -3,7 +3,7 @@
 
 
 import { createServer } from 'node:http';
-import fileserver from './modules/fileserver.mjs';
+import fileserver from './server_modules/fileserver.mjs';
 
 const endpoint = process.env.AWS_LAMBDA_HTTP_ENDPOINT;
 const [host, port] = endpoint ? endpoint.split(':') : ['127.0.0.1', 3000];
