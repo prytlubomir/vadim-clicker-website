@@ -9,8 +9,17 @@ const langOptions = Array.from(
 );
 
 
+function positionMenu() {
+    let threshold = window.innerHeight / 2;
+    if (window.scrollY < threshold)
+        langMenu.classList.add('top');
+    else
+        langMenu.classList.remove('top');
+}
+
 let langMenuOpen = false;
 function toggleLangMenu(e) {
+    positionMenu();
     if (!langMenuOpen)
         langMenu.classList.add('active');
     else
