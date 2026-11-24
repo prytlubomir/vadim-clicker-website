@@ -1,3 +1,7 @@
+/**
+ * This script powers the UI element for switching user's language preference
+ */
+
 const langMenuToggle = document.getElementById('lang-toggle');
 const langMenu = document.getElementsByClassName('lang-menu')[0];
 const langOptions = Array.from(
@@ -5,13 +9,17 @@ const langOptions = Array.from(
 );
 
 
-let langMenuOpen = false;
-function toggleLangMenu(e) {
-    if (!langMenuOpen)
-        langMenu.classList.add('active');
+function positionMenu() {
+    let threshold = window.innerHeight / 2;
+    if (window.scrollY < threshold)
+        langMenu.classList.add('top');
     else
-        langMenu.classList.remove('active');
-    langMenuOpen = !langMenuOpen;
+        langMenu.classList.remove('top');
+}
+
+function toggleLangMenu(e) {
+    positionMenu();
+    langMenu.classList.toggle('active');
 }
 
 function switchLanguage(e) {

@@ -52,26 +52,36 @@ body {
 
 .lang-menu {
     --transition-duration: 0.1s;
+    --lang-menu-height: 3.4em;
+    --lang-menu-padding: 0.5em;
     position: absolute;
     display: block;
     list-style-type: none;
     margin: 0;
-    padding: 0 0.5em;
-    height: 0;
+    padding: 0 var(--lang-menu-padding);
+    height: var(--lang-menu-height);
+    transform: scaleY(0);
     overflow: hidden;
     transition:
-        height var(--transition-duration),
+        transform var(--transition-duration),
         padding var(--transition-duration);
     background: rgba(100, 100, 200, 0.9);
     border-radius: 0.5em;
-    margin-left: -0.5em;
+    margin-left: calc(-1 * var(--lang-menu-padding));
+    transform-origin: top left;
+}
+
+.lang-menu.top {
+    transform-origin: bottom left;
+    translate: 0 calc(-1 * var(--lang-menu-height));
+    margin-top: calc(-1 * calc(1em + var(--lang-menu-padding)));
 }
 
 .lang-menu.active {
-    height: 3.4em;
+    transform: scaleY(1);
     padding: 0.5em;
     transition:
-        height var(--transition-duration),
+        transform var(--transition-duration),
         padding var(--transition-duration);
 }
 
