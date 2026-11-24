@@ -17,14 +17,9 @@ function positionMenu() {
         langMenu.classList.remove('top');
 }
 
-let langMenuOpen = false;
 function toggleLangMenu(e) {
     positionMenu();
-    if (!langMenuOpen)
-        langMenu.classList.add('active');
-    else
-        langMenu.classList.remove('active');
-    langMenuOpen = !langMenuOpen;
+    langMenu.classList.toggle('active');
 }
 
 function switchLanguage(e) {
